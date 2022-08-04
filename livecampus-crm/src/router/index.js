@@ -7,7 +7,7 @@ const routes = [
     component: () => import('../views/AppHome.vue'),
   },
   {
-    path: '/user/new',
+    path: '/user/:id',
     name: 'UserForm',
     component: () => import('../views/UserForm.vue'),
   }

@@ -1,7 +1,4 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <router-link to="/user/new" custom v-slot="{ navigate }">
-    <button @click="navigate">Créer un nouveau utilisateur</button></router-link>
   <router-view></router-view>
 </template>
 

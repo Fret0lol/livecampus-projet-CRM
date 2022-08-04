@@ -1,17 +1,23 @@
 const express = require('express');
 const app = express();
-const userDb = require('./db/user.json');
+const fs = require('fs');
+const cors = require('cors');
 
 const User = require('./class/user');
 
+let userDb = JSON.parse(fs.readFileSync('./db/user.json', 'utf8'));
+
 
 app.use(express.json());
+app.use(cors());
 
 app.listen(5000, () => {
+  console.log(userDb)
   console.log('listening on 5000');
 });
 
 app.get('/api/users', (req, res) => {
+  console.log('Get all users');
   res.json(userDb);
 });
 
@@ -32,6 +38,32 @@ app.post('/api/users', (req, res) => {
     req.body.phoneNumber
   )
   userDb.push(user);
+  fs.writeFileSync('./db/user.json', JSON.stringify(userDb, null, 2));
   res.status(201).json(user);
+});
+
+app.put('/api/users/:id', (req, res) => {
+  const user = userDb.find(user => user.id === req.params.id);
+  if (user) {
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.email = req.body.email;
+    user.phoneNumber = req.body.phoneNumber;
+    fs.writeFileSync('./db/user.json', JSON.stringify(userDb, null, 2));
+    res.json(user);
+  } else {
+    res.status(404).send('User not found');
+  }
+});
+
+app.delete('/api/users/:id', (req, res) => {
+  const user = userDb.find(user => user.id === req.params.id);
+  if (user) {
+    userDb = userDb.filter(user => user.id !== req.params.id);
+    fs.writeFileSync('./db/user.json', JSON.stringify(userDb, null, 2));
+    res.status(204).send();
+  } else {
+    res.status(404).send('User not found');
+  }
 });
 

@@ -16,9 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../livecampus-crm/dist')));
 
-app.listen(80, () => {
+app.listen(3000, () => {
   console.log(userDb)
-  console.log('listening on 80');
+  console.log('listening on port 3000');
 });
 
 app.get('/', (req, res) => {

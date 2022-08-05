@@ -7,7 +7,7 @@ const APISettings = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
   }),
-  baseUrl: 'http://localhost:5000'
+  baseUrl: 'http://localhost:3000'
 }
 
 

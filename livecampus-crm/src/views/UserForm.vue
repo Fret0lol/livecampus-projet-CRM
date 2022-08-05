@@ -36,6 +36,7 @@ import { getUserById, modifyUser, createUser } from '../services/UserAPI.js';
     mounted() {
       this.$route.params.id === 'new' ? this.newUser = true : this.newUser = false;
       if (!this.newUser) {
+        console.log('getUserById', this.$route.params.id);
         this.getUserById(this.$route.params.id);
       }
     },

@@ -31,12 +31,17 @@ app.get('/api/users/:id', (req, res) => {
 });
 
 app.post('/api/users', (req, res) => {
-  const user = new User(
-    req.body.firstName,
-    req.body.lastName,
-    req.body.email,
-    req.body.phoneNumber
-  )
+  let user
+  try {
+    user = new User(
+      req.body.firstName,
+      req.body.lastName,
+      req.body.email,
+      req.body.phoneNumber
+    )
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
   userDb.push(user);
   fs.writeFileSync('./db/user.json', JSON.stringify(userDb, null, 2));
   res.status(201).json(user);

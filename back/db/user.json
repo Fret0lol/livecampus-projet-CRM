@@ -1,16 +1,23 @@
 [
   {
-    "id": "ea52a386-1418-4b5e-b95d-d52fba0daa2b",
-    "firstName": "Clément",
-    "lastName": "Fretay",
-    "email": "cfretay7@gmail.com",
+    "id": "fc20b889-1792-492d-8e40-0dc9ad17baab",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "jdoe@gmail.com",
     "phoneNumber": ""
   },
   {
-    "id": "5c6b91c5-f38a-488e-9657-bf976801c6d5",
-    "firstName": "tesst",
-    "lastName": "test",
-    "email": "test@test.com",
+    "id": "f32c12b3-5c4c-4f5c-8e1d-ddb1631f43fb",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "jdoe@gmail.com",
+    "phoneNumber": ""
+  },
+  {
+    "id": "15dfc5eb-3a0b-43ee-8218-68c2a9c0a8d4",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "jdoe@gmail.com",
     "phoneNumber": ""
   }
 ]

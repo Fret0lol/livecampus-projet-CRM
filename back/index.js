@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const cors = require('cors');
+const path = require('path');
+const bodyParser = require('body-parser');
 
 const User = require('./class/user');
 
@@ -10,10 +12,17 @@ let userDb = JSON.parse(fs.readFileSync('./db/user.json', 'utf8'));
 
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../livecampus-crm/dist')));
 
 app.listen(5000, () => {
   console.log(userDb)
   console.log('listening on 5000');
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../livecampus-crm/dist/index.html'));
 });
 
 app.get('/api/users', (req, res) => {

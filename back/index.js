@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
 app.get('/api/users', (req, res) => {
   console.log('Get all users');
   res.json(userDb);
+  console.log(res)
 });
 
 app.get('/api/users/:id', (req, res) => {
